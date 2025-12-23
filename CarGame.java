@@ -1,16 +1,19 @@
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class CarGame {
 
     public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Car Racing Game");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(400, 600);
+            frame.setResizable(false);
 
-        JFrame frame = new JFrame("2D Car Racing Game");
-        GamePanel panel = new GamePanel();
+            frame.add(new GamePanel());
 
-        frame.add(panel);
-        frame.setSize(400, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        frame.setVisible(true);
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        });
     }
 }
+
